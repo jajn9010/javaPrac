@@ -1,12 +1,44 @@
 package ex03.operator;
 
+import java.util.Scanner;
+
 //*
 //최단산쉬관논삼대콤
 public class MainEntry {
 	public static void main(String[] args) {
 		// 삼항(조건) 연산자 : (조건) ? 참 : 거짓;
+		int x, y, z=0, result;
 		
-
+		Scanner sc = new Scanner(System.in);
+		System.out.println("integer data 2 input = ");
+		
+		x = sc.nextInt();
+		y = sc.nextInt();
+		
+//		if(x > y) result = x;
+//		else result = y;
+		
+		result = (x > y) ? x : y;
+		
+		System.out.println("max = " + result);
+		
+		String str = null;
+		System.out.println("year = ");
+		
+		int year = sc.nextInt();
+		
+		//if 판정?
+		
+		str = (year == 2000) ? "맞다." : "아니다";
+		
+		System.out.println(year + "년도는 윤년이 " + str);
+		
+		result = (x > y) ? x 
+					: (y > z) ? y
+							: (x > z) ? x : z; // else if 처럼 계속 할 수 있음
+		
+		sc.close();
+		
 	}
 }
 //*/

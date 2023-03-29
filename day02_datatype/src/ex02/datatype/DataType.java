@@ -7,7 +7,7 @@ public class DataType {
 		char ch = 'A'; //문자, '', 1byte
 		char ch2 = 67;
 		char ch3 = 'b';
-		int su = 20; 
+//		int su = 20; 
 		String nickname = "happy"; 
 		double d = 12.34;
 		
