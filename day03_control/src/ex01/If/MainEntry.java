@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainEntry {
 	public static void main(String[] args) {
 
-		String str = ""; // null
+//		String str = ""; // null
 		System.out.println("integer data input : ");
 
 		Scanner sc = new Scanner(System.in);

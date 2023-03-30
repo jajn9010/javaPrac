@@ -24,6 +24,6 @@ public class Report2 {
 			System.out.println(a + " " + strop + " " + b + " = " + result);
 		}
 		else System.out.println("사칙연산이 아닙니다.");
-		
+		sc.close();
 	}
 }

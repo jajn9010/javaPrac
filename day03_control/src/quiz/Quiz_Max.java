@@ -13,8 +13,7 @@ public class Quiz_Max {
 		else if(a<b) System.out.println(b);
 		else System.out.println("같은 값입니다.");
 		
-		int result = (a>b) ? a : (a<b) ? b : 0;
-		
+//		int res = (a>b) ? a : (a<b) ? b : 0;		
 	}
 }
 
