@@ -16,8 +16,18 @@ public class Score {
 		System.out.println("이름을 입력해 주세요 : ");
 		name = sc.next();
 		
-		System.out.println("국어, 영어, 전산 순으로 점수를 입력해주세요 : ");
-		kor = sc.nextInt(); eng = sc.nextInt(); com = sc.nextInt();
+		do {			
+			System.out.println("국어 점수를 입력해주세요 : ");
+			kor = sc.nextInt();
+		}while(kor > 100 || kor < 0);
+		do {			
+			System.out.println("영어 점수를 입력해주세요 : ");
+			eng = sc.nextInt();
+		}while(eng > 100 || eng < 0);
+		do {			
+			System.out.println("전산 점수를 입력해주세요 : ");
+			com = sc.nextInt();
+		}while(com > 100 || com < 0);
 		
 		total = kor + eng + com;
 		everg = (double)total/3;
@@ -28,11 +38,7 @@ public class Score {
 		case 8 : grade = 'B'; break;
 		case 7 : grade = 'C'; break;
 		case 6 : grade = 'D'; break;
-		case 5 : case 4 : case 3 : case 2 : case 1 : 
-			grade = 'F'; break;
-						
-		default :
-			System.out.println("점수를 잘못 입력하셨습니다. 0점부터 100점까지 입력해주세요.");
+		default : grade = 'F'; break;
 		}		
 		
 		System.out.print(name + "님의 성적표***************\n" + "국어 : " + kor + ", 영어 : " 

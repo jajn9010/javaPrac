@@ -15,7 +15,7 @@ public class UpDownGame {
 		for(int i = 1; i < 6; i++) {
 			
 			if(i==1) System.out.println("원하는 숫자를 입력해 주세요.");
-			else System.out.println("틀렸습니다. 재시도해주세요");
+			else System.out.printf("틀렸습니다. 재시도해주세요. 남은기회는 %d입니다.", chance);
 			
 			int choose = sc.nextInt();
 			
