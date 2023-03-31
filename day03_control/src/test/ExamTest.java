@@ -1,3 +1,4 @@
+/*
 package test;
 
 import java.util.Scanner;
@@ -9,3 +10,4 @@ public class ExamTest {
 		System.out.println(a);
 	}
 }
+//*/
