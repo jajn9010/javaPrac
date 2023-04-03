@@ -18,6 +18,7 @@ public class MainEntry {
 		
 		// 3.
 		char[] ch3 = {'J', 'A', 'V', 'A', 'k', 'b', 's', 'm', 'b', 'c'};
+		char loop = 'b';
 		
 		// 배열의 크기
 		System.out.println("배열의 길이(크기) : " + ch3.length);
@@ -34,5 +35,13 @@ public class MainEntry {
 		for (int i = 0; i < ch3.length; i++) {
 			System.out.println("ch3[" + i + "] = " +ch3[i]);
 		}
+		
+		// 확장된 for문
+		// for(자료형 변수명 : 컬렉션면 또는 배열명 { 반복구문; }
+		for (int item : ch3) {
+			System.out.println((char)item);
+			if (loop == (char)item) break;
+		}
+		
 	}
 }
