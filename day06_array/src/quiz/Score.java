@@ -8,15 +8,18 @@ public class Score {
 	
 	// 7명의 성적처리 배열이용하기
 	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
 		
-		String [] names = new String[7];
+		System.out.println("입력할 인원수를 입력해 주세요 : ");
+		int su = sc.nextInt();
+		String [] names = new String[su];
 		
-		int [][] score = new int[7][4];
+		int [][] score = new int[su][4];
 		String name;
 		int kor, eng, com, total;
-		double[] everg = new double[7];
+		double[] everg = new double[su];
 		
-		Scanner sc = new Scanner(System.in);
 		
 		for (int i = 0; i < names.length; i++) {
 			
@@ -58,7 +61,7 @@ public class Score {
 			System.out.print(names[i] + "님의 성적표***************\n" + "국어 : " + score[i][0] + ", 영어 : " 
 					+ score[i][1] + ", 전산 : " + score[i][2] + "\n총점 : " + score[i][3]);
 			System.out.printf(", 평균 : %.2f, 평점 : %c ", everg[i], grade);
-			System.out.println();
+			System.out.println("\n");
 		}		
 		
 		
