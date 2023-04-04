@@ -17,6 +17,6 @@ public class MainEntry {
 
 //		rand.nextInt(n);   // 0 ~ n-1 값 추출함
 		System.out.println(rand.nextInt(5)); // 0 ~ 4
-		System.out.println(rand.nextInt(20)+1); // 0 ~ 19
+		System.out.println(rand.nextInt(20)+1); // 1 ~ 19
 	}
 }
