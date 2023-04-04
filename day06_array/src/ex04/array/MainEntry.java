@@ -1,6 +1,7 @@
 //*
 package ex04.array;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class MainEntry {
@@ -34,14 +35,16 @@ public class MainEntry {
 		for (int i = 0; i < a8.length; i++) {
 			for (int j = 0; j < a8[i].length; j++) {
 				for (int k = 0; k < a8[i][j].length; k++) {
-					a8[i][j][k] = (int)(Math.random()*50)+1;
-					System.out.println("a8[" + i + "][" + j + "][" + k + "] = " + a8[i][j][k]);
+//					a8[i][j][k] = (int) (Math.random() * 50) + 1;
+					a8[i][j][k] = new Random().nextInt(45) + 1;
+					
+//					System.out.println("a8[" + i + "][" + j + "][" + k + "] = " + a8[i][j][k]);
 				}
 			}
 		} // input end
 		System.out.println("\n=================================\n");
 		for (int i = 0; i < a8.length; i++) {
-			System.out.println((i+1) + "번째 면행열\n");
+			System.out.println((i + 1) + "번째면 행열\n");
 			for (int j = 0; j < a8[i].length; j++) {
 				for (int k = 0; k < a8[i][j].length; k++) {
 					System.out.print(a8[i][j][k] + "\t");
@@ -50,7 +53,7 @@ public class MainEntry {
 			}
 			System.out.println("\n");
 		} // output end
-		
+
 		sc.close();
 	}
 }
