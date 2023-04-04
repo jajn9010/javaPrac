@@ -76,73 +76,99 @@ public class Score {
 //*
 package quiz;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import javax.swing.SwingConstants;
 
 public class Score {
-	
+
 	// 7명의 성적처리 배열이용하기
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("입력할 인원수를 입력해 주세요 : ");
 		int su = sc.nextInt();
-		String [] names = new String[su];
-		
-		int [][] score = new int[su][4];
+		String[] names = new String[su];
+
+		int[][] score = new int[su][4];
 		String name;
 		int kor, eng, com, total;
 		double[] everg = new double[su];
 		char[] grade = new char[su];
-		
+		double[] ranks = new double[su];
+
 		for (int i = 0; i < names.length; i++) {
-			
-			System.out.printf("%d번째 학생의 이름 : ", i+1);
+
+			System.out.printf("%d번째 학생의 이름 : ", i + 1);
 			name = sc.next();
 			names[i] = name;
-			
-			do {			
+
+			do {
 				System.out.print("국어 점수를 입력해주세요 : ");
 				kor = sc.nextInt();
 				score[i][0] = kor;
-			}while(kor > 100 || kor < 0);
-			do {			
+			} while (kor > 100 || kor < 0);
+			do {
 				System.out.print("영어 점수를 입력해주세요 : ");
 				eng = sc.nextInt();
 				score[i][1] = eng;
-			}while(eng > 100 || eng < 0);
-			do {			
+			} while (eng > 100 || eng < 0);
+			do {
 				System.out.print("전산 점수를 입력해주세요 : ");
 				com = sc.nextInt();
 				score[i][2] = com;
-			}while(com > 100 || com < 0);
+			} while (com > 100 || com < 0);
 
 			total = kor + eng + com;
 			score[i][3] = total;
-		}	// for end
-		
+		} // for end
+
+		for (int i = 0; i < ranks.length; i++) {
+			ranks[i] = (double) score[i][3] / 3;
+		}
+
+		Arrays.sort(ranks);
+
 		for (int i = 0; i < score.length; i++) {
-			everg[i] = (double)score[i][3]/3;
+			everg[i] = (double) score[i][3] / 3;
 			grade[i] = ' ';
-			
-			switch ((int)everg[i]/10) {
-			case 10 : case 9 : 
-				grade[i] = 'A'; break;
-			case 8 : grade[i] = 'B'; break;
-			case 7 : grade[i] = 'C'; break;
-			case 6 : grade[i] = 'D'; break;
-			default : grade[i] = 'F'; break;
-			}		
-			System.out.print(names[i] + "님의 성적표***************\n" + "국어 : " + score[i][0] + ", 영어 : " 
-					+ score[i][1] + ", 전산 : " + score[i][2] + "\n총점 : " + score[i][3]);
-			System.out.printf(", 평균 : %.2f, 평점 : %c ", everg[i], grade[i]);
+			int rank = 0, cnt = 0;
+
+			switch ((int) everg[i] / 10) {
+			case 10:
+			case 9:
+				grade[i] = 'A';
+				break;
+			case 8:
+				grade[i] = 'B';
+				break;
+			case 7:
+				grade[i] = 'C';
+				break;
+			case 6:
+				grade[i] = 'D';
+				break;
+			default:
+				grade[i] = 'F';
+				break;
+			}
+
+			for (int j = 0; j < ranks.length; j++) {
+				if (everg[i] == ranks[j]) {
+					rank = ranks.length - j;
+				}
+			}
+
+			System.out.print(names[i] + "님의 성적표***************\n" + "국어 : " + score[i][0] + ", 영어 : " + score[i][1]
+					+ ", 전산 : " + score[i][2] + "\n총점 : " + score[i][3]);
+			System.out.printf(", 평균 : %.2f, 평점 : %c, 석차(등수) : %d ", everg[i], grade[i], rank);
 			System.out.println("\n");
-		}	// score for end	
-		
+		} // score for end
+
 		sc.close();
-		
+
 	}
 }
 

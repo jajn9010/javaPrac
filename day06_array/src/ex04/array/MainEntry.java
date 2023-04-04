@@ -44,7 +44,7 @@ public class MainEntry {
 		} // input end
 		System.out.println("\n=================================\n");
 		for (int i = 0; i < a8.length; i++) {
-			System.out.println((i + 1) + "번째면 행열\n");
+			System.out.println((i + 1) + "번째 면 행열\n");
 			for (int j = 0; j < a8[i].length; j++) {
 				for (int k = 0; k < a8[i][j].length; k++) {
 					System.out.print(a8[i][j][k] + "\t");
