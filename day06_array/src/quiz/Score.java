@@ -1,66 +1,119 @@
-/*
+//*
 package quiz;
 
 import java.util.Scanner;
 
+class STUDENT {
+	String name;
+	int kor, eng, com, total, rank;
+	double evg;
+	char grade;
+}
+
 public class Score {
+	
+	public static void output(int x, STUDENT student) { //출력 함수
+		
+		System.out.print(student.name + "님의 성적표***************\n" + "국어 : " + student.kor + ", 영어 : " + student.eng
+				+ ", 전산 : " + student.com + "\n총점 : " + student.total);
+		System.out.printf(", 평균 : %.2f, 평점 : %c", student.evg, student.grade);
+		System.out.println("\n");
+		
+	}
+	
+	public static void input(int x, STUDENT student) { // 입력 함수
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.printf("%d번째 학생의 이름 : ", x + 1);
+		student.name = sc.next();
+
+		do {
+			System.out.print("국어 점수를 입력해주세요 : ");
+			student.kor = sc.nextInt();
+		} while (student.kor > 100 || student.kor < 0);
+		do {
+			System.out.print("영어 점수를 입력해주세요 : ");
+			student.eng = sc.nextInt();
+		} while (student.eng > 100 || student.eng < 0);
+		do {
+			System.out.print("전산 점수를 입력해주세요 : ");
+			student.com = sc.nextInt();
+		} while (student.com > 100 || student.com < 0);
+
+		getScore(student);
+		
+	}
+	
+	public static void getScore(STUDENT student) { // 점수, 학점 구하는 함수
+
+		student.total = student.kor + student.eng + student.com;
+		student.evg = student.total / 3.0;
+		
+		switch ((int) student.evg / 10) {
+			case 10:
+			case 9:	student.grade = 'A'; break;
+			case 8:	student.grade = 'B'; break;
+			case 7:	student.grade = 'C'; break;
+			case 6:	student.grade = 'D'; break;
+			default:
+				student.grade = 'F'; break;
+		}
+	
+	}
+	
+	
 	
 	// 7명의 성적처리 배열이용하기
 	public static void main(String[] args) {
 
-		String name;
-		int kor, eng, com, total;
-		double everg;
-		char grade = ' ';
-		
 		Scanner sc = new Scanner(System.in);
+
+		System.out.println("입력할 인원수를 입력해 주세요 : ");
+		int su = sc.nextInt();
 		
-		while(true) {
-			System.out.println("이름을 입력해 주세요 : ");
-			name = sc.next();
-			
-			do {			
-				System.out.println("국어 점수를 입력해주세요 : ");
-				kor = sc.nextInt();
-			}while(kor > 100 || kor < 0);
-			do {			
-				System.out.println("영어 점수를 입력해주세요 : ");
-				eng = sc.nextInt();
-			}while(eng > 100 || eng < 0);
-			do {			
-				System.out.println("전산 점수를 입력해주세요 : ");
-				com = sc.nextInt();
-			}while(com > 100 || com < 0);
-			
-			total = kor + eng + com;
-			everg = (double)total/3;
-			
-			switch ((int)everg/10) {
-			case 10 : case 9 : 
-				grade = 'A'; break;
-			case 8 : grade = 'B'; break;
-			case 7 : grade = 'C'; break;
-			case 6 : grade = 'D'; break;
-			default : grade = 'F'; break;
-			}		
-			
-			System.out.print(name + "님의 성적표***************\n" + "국어 : " + kor + ", 영어 : " 
-								+ eng + ", 전산 : " + com + "\n총점 : " + total);
-			System.out.printf(", 평균 : %.2f, 평점 : %c ", everg, grade);
-			
-			System.out.println("\n더 입력 하시겠어요? (y/n)");
-//			char ans = sc.next().charAt(0);
-			String ans = sc.next();
-			
-//			if(ans == 'n' || ans == 'N') break;
-//			if( ans.toLowerCase().equals("n") || ans.toUpperCase().equals("N")) break;  //대문자 소문자 문자로
-			if( ans.equalsIgnoreCase("n")) break; // equalsIgnoresCase() ==> () 괄호 안의 대소문자 구분 없이 비교하는 함수
-			
-//			sc.close();
-		}
+		STUDENT student[] = new STUDENT[su];
+//		STUDENT temp = new STUDENT();
+
+		for (int i = 0; i < su; i++) { // 이름, 점수 입력;
+			student[i] = new STUDENT();
+			input(i, student[i]);
+		} // for end
+
+		for (int i = 0; i < su; i++) { // 내용 출력
+			output(i, student[i]);
+		} // for end
 		
+		sc.close();
 	}
+
 }
+
+/*   순위 다음에 빼놓기
+for (int i = 0; i < student.length; i++) {
+			for (int j = i + 1; j < student.length; j++) {
+				if(student[i].total < student[j].total) {
+					temp = student[i];
+					student[i] = student[j];
+					student[j] = temp;
+				}
+				else if (student[i].total == student[j].total) {
+					if(student[i].com < student[j].com) {
+						temp = student[i];
+						student[i] = student[j];
+						student[j] = temp;
+					}else if (student[i].com == student[j].com) {
+						if(student[i].kor < student[j].kor) {
+							temp = student[i];
+							student[i] = student[j];
+							student[j] = temp;
+						}
+					}
+				}
+			}
+			
+		} // for end
+ */
 
 /*
 	문제] 이름 입력 받고, 국어, 영어, 전산 점수를 입력 받아서
@@ -73,7 +126,7 @@ public class Score {
 
 //*/
 
-//*
+/*
 package quiz;
 
 import java.util.Arrays;
