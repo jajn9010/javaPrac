@@ -127,14 +127,14 @@ public class Score {
 
 		for (int i = 0; i < ranks.length; i++) {
 			ranks[i] = (double) score[i][3] / 3;
-		}
+		} // copy everg
 
-		Arrays.sort(ranks);
+		Arrays.sort(ranks); // ranks sort
 
 		for (int i = 0; i < score.length; i++) {
 			everg[i] = (double) score[i][3] / 3;
 			grade[i] = ' ';
-			int rank = 0, cnt = 0;
+			int rank = 0;
 
 			switch ((int) everg[i] / 10) {
 			case 10:
@@ -153,7 +153,7 @@ public class Score {
 			default:
 				grade[i] = 'F';
 				break;
-			}
+			} // grade end
 
 			for (int j = 0; j < ranks.length; j++) {
 				if (everg[i] == ranks[j]) {
@@ -165,6 +165,7 @@ public class Score {
 					+ ", 전산 : " + score[i][2] + "\n총점 : " + score[i][3]);
 			System.out.printf(", 평균 : %.2f, 평점 : %c, 석차(등수) : %d ", everg[i], grade[i], rank);
 			System.out.println("\n");
+			
 		} // score for end
 
 		sc.close();
@@ -178,7 +179,7 @@ public class Score {
 		 
 		 이도연님의 성적표********************
 		 국어 : 100, 영어 : 100, 전산 : 100
-		 총점 : 300, 평균 : 100.0,  평점(학점) : A
+		 총점 : 300, 평균 : 100.0,  평점(학점) : A, 석차(등수) : 2
 */
 
 //*/
