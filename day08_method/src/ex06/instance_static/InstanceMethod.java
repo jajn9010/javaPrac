@@ -19,6 +19,5 @@ public class InstanceMethod {
 		B b = new B(); // 객체생성, 메모리에 할당, 생성자함수 자동호출
 		
 		b.setData(20, 30);
-		
 	}
 }

@@ -1,5 +1,7 @@
 package ex07.argumentVariable;
 
+import ex06.instance_static.InstanceMethod;
+
 public class MainEntry {
 
 	public static void plus(int...x) {
