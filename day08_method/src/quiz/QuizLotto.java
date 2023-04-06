@@ -45,5 +45,4 @@ public class QuizLotto {
 	
 	
 	// 같은 수인지 판단하는 함수 구현 ( ex: isCheck(int[] arr, int i) {  }) boolean type으로 구현
-	// 
 }
