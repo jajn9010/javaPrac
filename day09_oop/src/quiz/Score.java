@@ -6,61 +6,61 @@ public class Score {
 	int kor, eng, com, total;
 	double evg;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public char getGrade() {
-		return grade;
-	}
-
-	public void setGrade(char grade) {
-		this.grade = grade;
-	}
-
-	public int getKor() {
-		return kor;
-	}
-
-	public void setKor(int kor) {
-		this.kor = kor;
-	}
-
-	public int getEng() {
-		return eng;
-	}
-
-	public void setEng(int eng) {
-		this.eng = eng;
-	}
-
-	public int getCom() {
-		return com;
-	}
-
-	public void setCom(int com) {
-		this.com = com;
-	}
-
-	public int getTotal() {
-		return total;
-	}
-
-	public void setTotal(int total) {
-		this.total = total;
-	}
-
-	public double getEvg() {
-		return evg;
-	}
-
-	public void setEvg(double evg) {
-		this.evg = evg;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public char getGrade() {
+//		return grade;
+//	}
+//
+//	public void setGrade(char grade) {
+//		this.grade = grade;
+//	}
+//
+//	public int getKor() {
+//		return kor;
+//	}
+//
+//	public void setKor(int kor) {
+//		this.kor = kor;
+//	}
+//
+//	public int getEng() {
+//		return eng;
+//	}
+//
+//	public void setEng(int eng) {
+//		this.eng = eng;
+//	}
+//
+//	public int getCom() {
+//		return com;
+//	}
+//
+//	public void setCom(int com) {
+//		this.com = com;
+//	}
+//
+//	public int getTotal() {
+//		return total;
+//	}
+//
+//	public void setTotal(int total) {
+//		this.total = total;
+//	}
+//
+//	public double getEvg() {
+//		return evg;
+//	}
+//
+//	public void setEvg(double evg) {
+//		this.evg = evg;
+//	}
 
 	public void getScore() {
 		total = kor + eng + com;
@@ -84,12 +84,5 @@ public class Score {
 			grade = 'F';
 			break;
 		}
-	}
-
-	public void output() {
-		System.out.print("\n" + name + "님의 성적표***************\n" + "국어 : " + kor + ", 영어 : " + eng + ", 전산 : " + com
-				+ "\n총점 : " + total);
-		System.out.printf(", 평균 : %.2f, 평점 : %c", evg, grade);
-		System.out.println("\n");
 	}
 }

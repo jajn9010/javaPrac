@@ -5,40 +5,48 @@ import java.util.Scanner;
 public class MainEntry {
 	public static void main(String[] args) {
 		
-		Score sc = new Score();
-//		sc.setName("이재진");
-//		sc.setKor(100);
-//		sc.setEng(80);
-//		sc.setCom(90);
-//		
-//		sc.getScore();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("인원수를 입력해주세요.");
+		int su = scan.nextInt();
 		
-		input(sc);
+		Score sc [] = new Score[su];
 		
-		sc.output();
+		for (int i = 0; i < su; i++) {
+			sc[i] = new Score();
+			input(i, sc[i]);
+		}
 		
+		for (int i = 0; i < su; i++) {
+			output(sc[i]);
+		}
+		sc.clone();
 	}
 	
-	public static void input(Score sc) {
+	public static void input(int i, Score score) {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.printf("학생의 이름 : ");
-		sc.name = scan.next();
+		score.name = scan.next();
 
 		do {
 			System.out.print("국어 점수를 입력해주세요 : ");
-			sc.kor = scan.nextInt();
-		} while (sc.kor > 100 || sc.kor < 0);
+			score.kor = scan.nextInt();
+		} while (score.kor > 100 || score.kor < 0);
 		do {
 			System.out.print("영어 점수를 입력해주세요 : ");
-			sc.eng = scan.nextInt();
-		} while (sc.eng > 100 || sc.eng < 0);
+			score.eng = scan.nextInt();
+		} while (score.eng > 100 || score.eng < 0);
 		do {
 			System.out.print("전산 점수를 입력해주세요 : ");
-			sc.com = scan.nextInt();
-		} while (sc.com > 100 || sc.com < 0);
-		sc.getScore();
-		
-		scan.close();
+			score.com = scan.nextInt();
+		} while (score.com > 100 || score.com < 0);
+		score.getScore();
+	}
+	
+	public static void output(Score score) {
+		System.out.print("\n" + score.name + "님의 성적표***************\n" + "국어 : " + score.kor + ", 영어 : " + score.eng + ", 전산 : " + score.com
+				+ "\n총점 : " + score.total);
+		System.out.printf(", 평균 : %.2f, 평점 : %c", score.evg, score.grade);
+		System.out.println("\n");
 	}
 }
