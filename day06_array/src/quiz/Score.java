@@ -14,7 +14,7 @@ public class Score {
 	
 	public static void output(int x, STUDENT student) { //출력 함수
 		
-		System.out.print(student.name + "님의 성적표***************\n" + "국어 : " + student.kor + ", 영어 : " + student.eng
+		System.out.print("\n" + student.name + "님의 성적표***************\n" + "국어 : " + student.kor + ", 영어 : " + student.eng
 				+ ", 전산 : " + student.com + "\n총점 : " + student.total);
 		System.out.printf(", 평균 : %.2f, 평점 : %c", student.evg, student.grade);
 		System.out.println("\n");
@@ -73,7 +73,6 @@ public class Score {
 		int su = sc.nextInt();
 		
 		STUDENT student[] = new STUDENT[su];
-//		STUDENT temp = new STUDENT();
 
 		for (int i = 0; i < su; i++) { // 이름, 점수 입력;
 			student[i] = new STUDENT();

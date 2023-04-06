@@ -1,3 +1,4 @@
+/*
 package quiz;
 
 class Student {
@@ -14,3 +15,4 @@ public class ScoreClassTest {
 		
 	}
 }
+//*/
