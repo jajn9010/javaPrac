@@ -3,10 +3,10 @@ package quiz;
 import java.util.Scanner;
 
 public class Score {
-	String name;
-	char grade;
-	int kor, eng, com, total;
-	double evg;
+	private String name;
+	private char grade;
+	private int kor, eng, com, total;
+	private double evg;
 
 	public String getName() {
 		return name;
