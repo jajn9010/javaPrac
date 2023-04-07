@@ -11,42 +11,43 @@ public class MainEntry {
 		
 		Score sc [] = new Score[su];
 		
-		for (int i = 0; i < su; i++) {
-			sc[i] = new Score();
-			input(i, sc[i]);
-		}
+		input(sc);
+		output(sc);
 		
-		for (int i = 0; i < su; i++) {
-			output(sc[i]);
-		}
-		sc.clone();
+		scan.close();
 	}
 	
-	public static void input(int i, Score score) {
+	public static void input(Score[] score) {
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.printf("학생의 이름 : ");
-		score.name = scan.next();
-
-		do {
-			System.out.print("국어 점수를 입력해주세요 : ");
-			score.kor = scan.nextInt();
-		} while (score.kor > 100 || score.kor < 0);
-		do {
-			System.out.print("영어 점수를 입력해주세요 : ");
-			score.eng = scan.nextInt();
-		} while (score.eng > 100 || score.eng < 0);
-		do {
-			System.out.print("전산 점수를 입력해주세요 : ");
-			score.com = scan.nextInt();
-		} while (score.com > 100 || score.com < 0);
-		score.getScore();
+		for (int i = 0; i < score.length; i++) {
+			score[i] = new Score();
+			System.out.printf("%d번째 학생의 이름 : ", i+1);
+			score[i].name = scan.next();
+			
+			do {
+				System.out.print("국어 점수를 입력해주세요 : ");
+				score[i].kor = scan.nextInt();
+			} while (score[i].kor > 100 || score[i].kor < 0);
+			do {
+				System.out.print("영어 점수를 입력해주세요 : ");
+				score[i].eng = scan.nextInt();
+			} while (score[i].eng > 100 || score[i].eng < 0);
+			do {
+				System.out.print("전산 점수를 입력해주세요 : ");
+				score[i].com = scan.nextInt();
+			} while (score[i].com > 100 || score[i].com < 0);
+			
+			score[i].getScore();
+		}
 	}
 	
-	public static void output(Score score) {
-		System.out.print("\n" + score.name + "님의 성적표***************\n" + "국어 : " + score.kor + ", 영어 : " + score.eng + ", 전산 : " + score.com
-				+ "\n총점 : " + score.total);
-		System.out.printf(", 평균 : %.2f, 평점 : %c", score.evg, score.grade);
-		System.out.println("\n");
+	public static void output(Score[] score) {
+		for (int i = 0; i < score.length; i++) {
+			System.out.print("\n" + score[i].name + "님의 성적표***************\n" + "국어 : " + score[i].kor + ", 영어 : " + 
+					score[i].eng + ", 전산 : " + score[i].com + "\n총점 : " + score[i].total);
+			System.out.printf(", 평균 : %.2f, 평점 : %c", score[i].evg, score[i].grade);
+			System.out.println("\n");
+		}
 	}
 }
