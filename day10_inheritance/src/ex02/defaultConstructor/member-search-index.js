@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"ex02.defaultConstructor","c":"MainEntry","l":"gob(int, int)","u":"gob(int,int)"},{"p":"ex02.defaultConstructor","c":"MainEntry","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"ex02.defaultConstructor","c":"MainEntry","l":"MainEntry()","u":"%3Cinit%3E()"}];updateSearchResults();
