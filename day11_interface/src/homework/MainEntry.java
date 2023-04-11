@@ -7,12 +7,11 @@ public class MainEntry {
 		
 		Trans[] t = {new Subway(), new Bus(), new Bicycle(), new Plane()};
 		String[] str = {"Subway", "Bus", "Bicycle", "Plane"};
-		boolean flag = true;
 		int inNum = 0;
 		Scanner sc = new Scanner(System.in);
 		
 
-		while(flag) {
+		while(true) {
 			System.out.println("1부터 4까지의 숫자를 입력하시오");
 			inNum = sc.nextInt();
 			
@@ -40,7 +39,6 @@ public class MainEntry {
 				
 			}
 		}
-		
 		
 	}
 }
