@@ -12,8 +12,10 @@ public class ScannerTest {
 		String a = sc.next();
 		sc.next(); sc.next();  //
 		String b = sc.next();
+		sc.next();
+		String c = sc.next();
 		
-		System.out.println(a + ", " + b);
+		System.out.println(a + ", " + b + ", " + c);
 		
 //		String name = sc.nextLine(); // 공백 인식한다.
 //		String str = sc.next(); // 공백 인식하지 않는다.
