@@ -16,7 +16,7 @@ class Atm {
 	}
 	
 	// static member에서는 this 사용할 수 없다.
-	public static void show(int count, int total) {
+	public static void show(int count, int total) {  //객체가 생성될 때 객체의 시작 주소를 가지고 있는 것이 this. 골록 Static 영역에서는 사용할 수 없다.
 //		this.count = count;
 //		this.total = total;
 	}
@@ -31,7 +31,7 @@ class Atm {
 } //Atm end
 
 public class MainEntry {
-	public static void main(String[] args) {
+	public static void main(String[] args) { //시작점(진입점) -> Static이 붙어있기 때문에 메모리에 할당되어 있다.
 		
 		System.out.println(Atm.total);
 		
