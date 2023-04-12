@@ -60,44 +60,43 @@ public class ArrayTest {
 //*
 package ex01.arrayAlgorithm;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class ArrayTest {
 	public static void main(String[] args) {
 		
-		int n = 6;
-		int[] arr1 = {46, 33, 33 ,22, 31, 50};
-		int[] arr2 = {27 ,56, 19, 14, 14, 10};
-		
-		String[] answer = new String[n];
-		
-		for (int i = 0; i < n; i++) {
-			String[] str = new String[n];
-			answer[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
-			if(answer[i].length()<n) {
-				for(int j = 0; j < n-answer[i].length(); j++) {
-					String s = "0";
-					answer[i] = s.concat(answer[i]);
-					
-				}
-			}
-			
-			System.out.println(answer[i]);
-			for(int j = 0; j < n; j++) {
-				answer[i].substring(j, j+1);
-				str[j] = answer[i].substring(j, j+1);
-				
-				if(str[j].equals("1")) {
-					str[j] = "#";
-					answer[i] += str[j];
-				}else answer[i] += " ";
-				
-				
-			}
-			answer[i] = answer[i].substring(n);
-		}
-		
-		System.out.println(Arrays.toString(answer));
+//		int n = 6;
+//		int[] arr1 = {46, 33, 33 ,22, 31, 50};
+//		int[] arr2 = {27 ,56, 19, 14, 14, 10};
+//		
+//		String[] answer = new String[n];
+//		
+//		for (int i = 0; i < n; i++) {
+//			String[] str = new String[n];
+//			answer[i] = Integer.toBinaryString(arr1[i] | arr2[i]);
+//			if(answer[i].length()<n) {
+//				for(int j = 0; j < n-answer[i].length(); j++) {
+//					String s = "0";
+//					answer[i] = s.concat(answer[i]);
+//					
+//				}
+//			}
+//			
+//			for(int j = 0; j < n; j++) {
+//				answer[i].substring(j, j+1);
+//				str[j] = answer[i].substring(j, j+1);
+//				
+//				if(str[j].equals("1")) {
+//					str[j] = "#";
+//					answer[i] += str[j];
+//				}else answer[i] += " ";
+//				
+//				
+//			}
+//			answer[i] = answer[i].substring(n);
+//		}
+//		
+//		System.out.println(Arrays.toString(answer));
 	}
 }
 //*/
