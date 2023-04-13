@@ -9,7 +9,7 @@ public class VectorEx2 {
 
 		int i;
 		Date date = new Date();
-		Vector v = new Vector<>(3, 5);
+		Vector<Object> v = new Vector<>(3, 5);
 
 		v.addElement("자바"); // String
 		v.addElement(new Double(10.2)); // Double
@@ -27,12 +27,12 @@ public class VectorEx2 {
 
 		System.out.println("============== Vector 내용 출력 ================");
 
-		Enumeration enu = v.elements();
+		Enumeration<Object> enu = v.elements();
 		while (enu.hasMoreElements()) {
 			System.out.print(enu.nextElement() + "  ");
 		}
 
-		System.out.println("============== 객체 내용 포함 확인 ================");
+		System.out.println("\n============== 객체 내용 포함 확인 ================");
 		if (v.contains("자바1"))
 			System.out.println("자바 문자열 포함됨");
 		else
@@ -49,10 +49,37 @@ public class VectorEx2 {
 		System.out.println(v);
 
 		for (i = 0; i < v.size(); i++) {
-			v.removeElementAt(i);
+//			v.removeElementAt(i);
+//			v.remove(i);
+			v.remove(10.2);
+//			v.removeAllElements();
 		}
 		System.out.println("*****************************");
 		System.out.println("size : " + v.size() + ", capacity : " + v.capacity());
 		System.out.println(v);
+		
+		for (i = 0; i < v.size(); i++) {
+			System.out.print(v.get(i) + ", ");
+		}
+		
+		System.out.println("\n+++++++++++++++++++++++++++++");
+		v.setElementAt("java", 2); // 3번째 위치에 java 문자열 추가
+		
+		enu = v.elements();
+		while(enu.hasMoreElements()) {
+			System.out.print(enu.nextElement() + ", ");
+		}
+
+		System.out.println("*****************************");
+		v.trimToSize();
+		System.out.println("size : " + v.size() + ", capacity : " + v.capacity());
+
+		v.setSize(2);
+		enu = v.elements();
+		while(enu.hasMoreElements()) {
+			System.out.print(enu.nextElement() + ", ");
+		}
+		
+		System.out.println("\nsize : " + v.size() + ", capacity : " + v.capacity());
 	}
 }
