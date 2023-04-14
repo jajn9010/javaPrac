@@ -5,8 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainEntry {
+public class MainEntry {  // view & controller
 	public static void main(String[] args) {
+		
+		
+		int SU = 3;
+		
 		Scanner sc = new Scanner(System.in);
 		List<Customer> list = new ArrayList<>();
 		
@@ -21,7 +25,7 @@ public class MainEntry {
 				addCustomer(list, c);
 				break;
 			case 2 :
-				System.out.println("삭제할 고객의 이름을 입력하세요.");
+				System.out.println("삭제할 고객의 전화번호를 입력하세요.");
 				Customer c1 = new Customer(sc.next());
 				deleteCustomer(list, c1);
 				break;
@@ -44,7 +48,7 @@ public class MainEntry {
 	public static void updateCustomer(List<Customer> list, Customer c2) {
 		Scanner sc = new Scanner(System.in);
 		for (int i = 0; i < list.size(); i++) {
-			if(list.get(i).name.equals(c2.name)) {
+			if(list.get(i).tel.equals(c2.tel)) {
 				System.out.println("수정할 고객의 이름, 주소, 전화번호 순으로 입려해주세요.");
 				Customer c = new Customer(sc.next(), sc.next(), sc.next());
 				list.set(i, c);

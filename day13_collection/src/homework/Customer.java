@@ -3,7 +3,7 @@ package homework;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Customer {
+public class Customer {  //Model
 	String name, address, tel;
 	
 	public Customer(String name, String address, String tel) {
@@ -38,25 +38,7 @@ public class Customer {
 	}
 
 
-	public Customer(String name) {
-		this.name = name;
-	}
-
-
-	public Customer input() {
-		
-		Scanner sc = new Scanner(System.in);
-		System.out.println("성함을 입력해주세요");
-		name = sc.next();
-		System.out.println("주소을 입력해주세요");
-		address = sc.next();
-		System.out.println("전화번호를 입력해주세요");
-		tel = sc.next();
-		
-		Customer str = new Customer(name, address, tel);
-		
-		sc.close();
-		
-		return str;
+	public Customer(String tel) {
+		this.tel = tel;
 	}
 }
