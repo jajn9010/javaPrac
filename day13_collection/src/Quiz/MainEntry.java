@@ -83,6 +83,5 @@ public class MainEntry {
 					continue;
 			}
 		} while(true);
-		
 	}
 }
