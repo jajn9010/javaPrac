@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MainEntry {
 	private static final ScoreController controller = new ScoreController();
 
+	@SuppressWarnings("resource") //닫기 가능 유형의 자원 사용에 대한 경고 억제
 	public static void main(String[] args) {
 		String menu; // int로 받으면 buffer에 엔터기호나 공백이 남았을 시 문제가 생기므로 String으로 받음
 

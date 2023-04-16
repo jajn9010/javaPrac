@@ -31,7 +31,7 @@ public class ScoreController implements ScoreInterface {
 			rank = 1;
 			stdNum = 1;
 		} else {
-			stdNum = SCORES.get(SCORES.size()-1).getStdNum() + 1;
+			stdNum = SCORES.get(SCORES.size() - 1).getStdNum() + 1;
 		}
 		SC.nextLine();
 		SCORES.add(new Score(name, kor, eng, com, rank, stdNum));
@@ -47,40 +47,44 @@ public class ScoreController implements ScoreInterface {
 			SC.nextLine();
 
 			if (SCORES.size() >= i) {
-				do {
-					System.out.println("학생의 수정할 부분이 무엇입니까?");
-					System.out.println("1.국어점수, 2.영어점수, 3.전산점수");
-					Integer num = SC.nextInt();
+				System.out.println("학생의 수정할 부분이 무엇입니까?");
+				System.out.println("1.학생 이름, 2.국어점수, 3.영어점수, 4.전산점수");
+				Integer num = SC.nextInt();
+				SC.nextLine();
+				switch (num) {
+				case 1: {
+					System.out.println("수정할 학생 이름를 입력해주세요.");
+					String nName = SC.nextLine();
+					SCORES.get(i - 1).setName(nName);
+					break;
+				}
+				case 2: {
+					System.out.println("수정할 국어점수를 입력해주세요.");
+					Integer nKor = SC.nextInt();
 					SC.nextLine();
-					switch (num) {
-					case 1: {
-						System.out.println("수정할 국어점수를 입력해주세요.");
-						Integer nKor = SC.nextInt();
-						SC.nextLine();
-						SCORES.get(i-1).setKor(nKor);
-						System.exit(0);
+					SCORES.get(i - 1).setKor(nKor);
+					break;
+				}
+				case 3: {
+					Integer nEng = SC.nextInt();
+					System.out.println("수정할 영어점수를 입력해주세요.");
+					SC.nextLine();
+					SCORES.get(i - 1).setEng(nEng);
+					break;
+				}
+				case 4: {
+					System.out.println("수정할 전산점수를 입력해주세요.");
+					Integer nCom = SC.nextInt();
+					SC.nextLine();
+					SCORES.get(i - 1).setCom(nCom);
+					break;
+				}
+				default: {
+					if (!num.equals("[1-4]")) {
+						System.out.println("입력범위를 초과하셨습니다.");
 					}
-					case 2: {
-						Integer nEng = SC.nextInt();
-						System.out.println("수정할 영어점수를 입력해주세요.");
-						SC.nextLine();
-						SCORES.get(i-1).setEng(nEng);
-						System.exit(0);
-					}
-					case 3: {
-						System.out.println("수정할 전산점수를 입력해주세요.");
-						Integer nCom = SC.nextInt();
-						SC.nextLine();
-						SCORES.get(i-1).setCom(nCom);
-						System.exit(0);
-					}
-					default: {
-						if (!num.equals("[1-3]")) {
-							System.out.println("입력범위를 초과하셨습니다.");
-						}
-					}
-					} // switch end
-				} while (true);
+				}
+				} // switch end
 			} else {
 			} // inner if end
 		} else {
@@ -128,15 +132,16 @@ public class ScoreController implements ScoreInterface {
 	}
 
 	public void rankScore() {
-		for(Score i : SCORES) {
-			for(Score j : SCORES) {
-				if(i.getTotal() > j.getTotal()) {
-					j.setRank(j.getRank()+1); break;
+		SCORES.forEach(s -> s.setRank(1));
+		for (int i = 0; i < SCORES.size(); i++) {
+			for (int j = 0; j < SCORES.size(); j++) {
+				if (SCORES.get(i).getTotal() > SCORES.get(j).getTotal()) {
+					SCORES.get(j).setRank(SCORES.get(j).getRank() + 1);
 				}
+
 			}
 		}
-		
-		
+
 	}
 
 }
