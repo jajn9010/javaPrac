@@ -80,7 +80,7 @@ public class Score {
 		this.avg = this.getTotal() / 3.;
 	}
 
-	private void updateScore() {
+	void updateScore() {
 		setTotal(kor, eng, com);
 		setAvg();
 		setGrade();
