@@ -5,15 +5,16 @@ import java.util.Objects;
 public class Score {
 	private String name;
 	private char grade;
-	private int kor, eng, com, total, rank;
+	private int kor, eng, com, total, rank, stdNum;
 	private double avg;
 
-	public Score(String name, int kor, int eng, int com, int rank) {
+	public Score(String name, int kor, int eng, int com, int rank, int stdNum) {
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.com = com;
 		this.rank = rank;
+		this.stdNum = stdNum;
 		updateScore();
 	}
 
@@ -93,15 +94,23 @@ public class Score {
 		this.rank = rank;
 	}
 
+	public int getStdNum() {
+		return stdNum;
+	}
+
+	public void setStdNum(int stdNum) {
+		this.stdNum = stdNum;
+	}
+
 	@Override
 	public String toString() {
-		return "\n**********" + name + "님의 성적표**********\n" + "국어 : " + kor + ", 영어 : " + eng + ", 전산 : " + com
-				+ "\n총점 : " + total + ", 평점 : " + avg + "학점 : " + grade + "등수 : " + rank;
+		return "\n**********" + name + "님의 성적표**********\n" +"학번 : " + stdNum +", 국어 : " + kor + ", 영어 : " + eng + ", 전산 : " + com
+				+ "\n총점 : " + total + ", 평점 : " + avg + ", 학점 : " + grade + ", 등수 : " + rank;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(com, eng, avg, grade, kor, name, total, rank);
+		return Objects.hash(com, stdNum, eng, avg, grade, kor, name, total, rank);
 	}
 
 	@Override
