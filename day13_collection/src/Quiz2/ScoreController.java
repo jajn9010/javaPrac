@@ -46,7 +46,7 @@ public class ScoreController implements ScoreInterface {
 			Integer i = SC.nextInt();
 			SC.nextLine();
 
-			if (SCORES.size() > i) {
+			if (SCORES.size() >= i) {
 				do {
 					System.out.println("학생의 수정할 부분이 무엇입니까?");
 					System.out.println("1.국어점수, 2.영어점수, 3.전산점수");
@@ -54,19 +54,25 @@ public class ScoreController implements ScoreInterface {
 					SC.nextLine();
 					switch (num) {
 					case 1: {
+						System.out.println("수정할 국어점수를 입력해주세요.");
 						Integer nKor = SC.nextInt();
 						SC.nextLine();
-						SCORES.get(i).setKor(nKor);
+						SCORES.get(i-1).setKor(nKor);
+						System.exit(0);
 					}
 					case 2: {
 						Integer nEng = SC.nextInt();
+						System.out.println("수정할 영어점수를 입력해주세요.");
 						SC.nextLine();
-						SCORES.get(i).setEng(nEng);
+						SCORES.get(i-1).setEng(nEng);
+						System.exit(0);
 					}
 					case 3: {
+						System.out.println("수정할 전산점수를 입력해주세요.");
 						Integer nCom = SC.nextInt();
 						SC.nextLine();
-						SCORES.get(i).setCom(nCom);
+						SCORES.get(i-1).setCom(nCom);
+						System.exit(0);
 					}
 					default: {
 						if (!num.equals("[1-3]")) {
@@ -122,14 +128,15 @@ public class ScoreController implements ScoreInterface {
 	}
 
 	public void rankScore() {
-		for (int i = 0; i < SCORES.size(); i++) {
-			for (int j = i + 1; j < SCORES.size(); j++) {
-				if (SCORES.get(i).getTotal() > SCORES.get(j).getTotal()) {
-					SCORES.get(j).setRank(SCORES.get(j).getRank() + 1);
-					break;
+		for(Score i : SCORES) {
+			for(Score j : SCORES) {
+				if(i.getTotal() > j.getTotal()) {
+					j.setRank(j.getRank()+1); break;
 				}
 			}
 		}
+		
+		
 	}
 
 }
