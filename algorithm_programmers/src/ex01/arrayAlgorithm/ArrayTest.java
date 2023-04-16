@@ -64,10 +64,19 @@ package ex01.arrayAlgorithm;
 
 public class ArrayTest {
 	public static void main(String[] args) {
-		int a = 3;
-		String answer = "";
-		answer = (a == 8)? "정답" : "오답"; 
-		System.out.println(answer);
+//		int a = 3;
+//		String answer = "";
+//		answer = (a == 8)? "정답" : "오답"; 
+//		System.out.println(answer);
+		
+		String a = "korea";
+		String b = "korea";
+		
+		if(a==b) {
+			System.out.println("dd");
+		}
+		
+		
 		
 //		int n = 6;
 //		int[] arr1 = {46, 33, 33 ,22, 31, 50};
