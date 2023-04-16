@@ -2,17 +2,18 @@ package Quiz2;
 
 import java.util.Objects;
 
-public class Student {
+public class Score {
 	private String name;
 	private char grade;
-	private int kor, eng, com, total;
+	private int kor, eng, com, total, rank;
 	private double avg;
 
-	public Student(String name, int kor, int eng, int com) {
+	public Score(String name, int kor, int eng, int com, int rank) {
 		this.name = name;
 		this.kor = kor;
 		this.eng = eng;
 		this.com = com;
+		this.rank = rank;
 		updateScore();
 	}
 
@@ -83,16 +84,24 @@ public class Student {
 		setAvg();
 		setGrade();
 	}
+	
+	public int getRank() {
+		return rank;
+	}
+	
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 
 	@Override
 	public String toString() {
 		return "\n**********" + name + "님의 성적표**********\n" + "국어 : " + kor + ", 영어 : " + eng + ", 전산 : " + com
-				+ "\n총점 : " + total + ", 평점 : " + avg + "학점 : " + grade;
+				+ "\n총점 : " + total + ", 평점 : " + avg + "학점 : " + grade + "등수 : " + rank;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(com, eng, avg, grade, kor, name, total);
+		return Objects.hash(com, eng, avg, grade, kor, name, total, rank);
 	}
 
 	@Override
@@ -103,10 +112,10 @@ public class Student {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Student other = (Student) obj;
+		Score other = (Score) obj;
 		return com == other.com && eng == other.eng
 				&& Double.doubleToLongBits(avg) == Double.doubleToLongBits(other.avg) && grade == other.grade
-				&& kor == other.kor && Objects.equals(name, other.name) && total == other.total;
+				&& kor == other.kor && Objects.equals(name, other.name) && total == other.total && rank == other.rank;
 	}
 
 }
