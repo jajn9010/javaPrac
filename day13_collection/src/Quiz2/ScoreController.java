@@ -12,7 +12,7 @@ public class ScoreController implements ScoreInterface {
 	@Override
 	public void addScore() {
 		Integer i = new Integer(0);
-		int kor, eng, com, rank = 0;
+		int kor, eng, com, rank = 0, stdNum = 0;
 		System.out.println("이름을 입력해 주세요.");
 		String name = SC.nextLine();
 		do {
@@ -29,18 +29,57 @@ public class ScoreController implements ScoreInterface {
 		} while (com > 100 || com < 0);
 		if (SCORES.size() == 0) {
 			rank = 1;
+			stdNum = 1;
+		} else {
+			stdNum = SCORES.get(SCORES.size()-1).getStdNum() + 1;
 		}
 		SC.nextLine();
-		SCORES.add(new Score(name, kor, eng, com, rank, SCORES.size()+1));
+		SCORES.add(new Score(name, kor, eng, com, rank, stdNum));
 		rankScore();
 	}
 
 	@Override
 	public void updateScore() {
-		showScore();
-		System.out.println("수정할 학생의 학번을 입력하세요.");
-		Integer i = SC.nextInt();
-		
+		if (SCORES.size() != 0) {
+			showScore();
+			System.out.println("수정할 학생의 학번을 입력하세요.");
+			Integer i = SC.nextInt();
+			SC.nextLine();
+
+			if (SCORES.size() > i) {
+				do {
+					System.out.println("학생의 수정할 부분이 무엇입니까?");
+					System.out.println("1.국어점수, 2.영어점수, 3.전산점수");
+					Integer num = SC.nextInt();
+					SC.nextLine();
+					switch (num) {
+					case 1: {
+						Integer nKor = SC.nextInt();
+						SC.nextLine();
+						SCORES.get(i).setKor(nKor);
+					}
+					case 2: {
+						Integer nEng = SC.nextInt();
+						SC.nextLine();
+						SCORES.get(i).setEng(nEng);
+					}
+					case 3: {
+						Integer nCom = SC.nextInt();
+						SC.nextLine();
+						SCORES.get(i).setCom(nCom);
+					}
+					default: {
+						if (!num.equals("[1-3]")) {
+							System.out.println("입력범위를 초과하셨습니다.");
+						}
+					}
+					} // switch end
+				} while (true);
+			} else {
+			} // inner if end
+		} else {
+			System.out.println("수정할 학생이 없습니다.");
+		} // outter if end
 	}
 
 	@Override
@@ -51,21 +90,35 @@ public class ScoreController implements ScoreInterface {
 				"\n학번\t이름\t국어\t영어\t전산\t총점\t평균\t\t학점\t석차\n============================================================================");
 		for (int i = 0; i < SCORES.size(); i++) {
 			Score a = SCORES.get(i);
-			if (SCORES.size() > 0) {
-				System.out.printf("%2d번\t%3s\t%3d점\t%3d점\t%3d점\t%3d점\t%6.2f점\t%2c\t%d/%d%n", a.getStdNum(), a.getName(), 
-						a.getKor(),	a.getEng(), a.getCom(), a.getTotal(), a.getAvg(), a.getGrade(), a.getRank(), SCORES.size());
+			if (SCORES.size() != 0) {
+				System.out.printf("%2d번\t%3s\t%3d점\t%3d점\t%3d점\t%3d점\t%6.2f점\t%2c\t%d/%d%n", a.getStdNum(), a.getName(),
+						a.getKor(), a.getEng(), a.getCom(), a.getTotal(), a.getAvg(), a.getGrade(), a.getRank(),
+						SCORES.size());
 			} else
-//				System.out.println("등록된 학생이 없습니다.");
-				break;
+				System.out.println("등록된 학생이 없습니다.");
 		}
 	}
 
 	@Override
 	public void deleteScore() {
-		showScore();
-		System.out.println("수정할 학생의 학번을 입력하세요.");
-		Integer i = SC.nextInt();
-		SCORES.remove(i);
+		if (SCORES.size() != 0) {
+			showScore();
+			System.out.println("삭제할 학생의 학번을 입력하세요.");
+			Integer num = SC.nextInt();
+			SC.nextLine();
+			if (SCORES.size() > num) {
+				for (int j = 0; j < SCORES.size(); j++) {
+					if (SCORES.get(j).getStdNum() == num) {
+						SCORES.remove(j);
+					}
+				}
+				rankScore();
+			} else {
+				System.out.println("잘못입력하셨습니다. 번호를 확인 후 다시 입력바랍니다.");
+			}
+		} else {
+			System.out.println("삭제할 학생이 없습니다.");
+		}
 	}
 
 	public void rankScore() {
@@ -73,6 +126,7 @@ public class ScoreController implements ScoreInterface {
 			for (int j = i + 1; j < SCORES.size(); j++) {
 				if (SCORES.get(i).getTotal() > SCORES.get(j).getTotal()) {
 					SCORES.get(j).setRank(SCORES.get(j).getRank() + 1);
+					break;
 				}
 			}
 		}
