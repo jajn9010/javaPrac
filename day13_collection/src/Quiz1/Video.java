@@ -1,4 +1,4 @@
-package Quiz;
+package Quiz1;
 
 public class Video {
 	protected String title, category, lendName, lendDate;

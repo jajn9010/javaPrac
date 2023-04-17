@@ -1,4 +1,4 @@
-package Quiz;
+package Quiz1;
 
 import java.util.Map;
 

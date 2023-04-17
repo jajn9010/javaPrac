@@ -1,4 +1,4 @@
-package Quiz;
+package Quiz1;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
