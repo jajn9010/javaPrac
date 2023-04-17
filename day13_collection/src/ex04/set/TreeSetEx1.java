@@ -22,7 +22,7 @@ class TreeSetEx1 {
 		set.add("flower");
 		System.out.println(set);
 		System.out.println("range search : from " + from + " to " + to);
-		System.out.println("result1 : " + set.subSet(from, to));
+		System.out.println("result1 : " + set.subSet(from, to)); // 상한가 포함, 하한값 미포함
 		System.out.println("result2 : " + set.subSet(from, to + "zzz"));
 	}
 }

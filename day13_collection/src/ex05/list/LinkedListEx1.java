@@ -14,7 +14,7 @@ class LinkedListEx1 {
 		list.addFirst("a");
 		list.addLast("z");
 		System.out.println(list);
-		list.remove("k");
+		list.remove("k"); // data 값으로 찾아서 삭제 및 추가 가능
 		System.out.println(list);
 		list.remove(2);
 		System.out.println(list);
