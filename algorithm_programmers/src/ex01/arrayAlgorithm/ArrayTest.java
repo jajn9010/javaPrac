@@ -77,6 +77,10 @@ public class ArrayTest {
 		}
 		
 		
+		String s = "()()";
+		char[] ch = s.toCharArray();
+		
+		System.out.println(ch);
 		
 //		int n = 6;
 //		int[] arr1 = {46, 33, 33 ,22, 31, 50};
