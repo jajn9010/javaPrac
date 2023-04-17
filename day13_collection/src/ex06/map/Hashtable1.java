@@ -5,7 +5,7 @@ import java.util.Enumeration;
 
 class Hashtable1 {
 	public static void main(String[] args) {
-		Hashtable ht = new Hashtable();
+		Hashtable ht = new Hashtable(); //map 타입
 		ht.put("1", "가위");
 		ht.put("2", "바위");
 		ht.put("3", "보");
