@@ -11,11 +11,11 @@ class Solution {
 
 		Scanner sc = new Scanner(System.in);
 		
-		int T = sc.nextInt();
+		int T = Integer.parseInt(sc.nextLine().trim());
 		
 		for (int test_case = 1; test_case <= T; test_case++) {
 			AnswerN = 0;
-			N = sc.nextInt();
+			N = Integer.parseInt(sc.nextLine().trim());
 			
 			String[] str = new String[N];
 			char [][] poXY = new char[N][N];
@@ -24,9 +24,8 @@ class Solution {
 			int cnt = 0;
 			
 			for (int i = 0; i < N; i++) {
-				str[i] = sc.nextLine();
+				str[i] = sc.nextLine().trim();
 				str[i] = str[i].replace(" ", "");
-				System.out.println(Arrays.toString(str));
 			}
 			
 			for (int i = 0; i < N; i++) {
@@ -39,7 +38,7 @@ class Solution {
 				}
 			}
 			
-			
+			loop :
 			for (int i = x-2; i >= 0; i--) {
 				if(x < 1 || x > N-2) {
 					AnswerN += 0;
@@ -55,10 +54,11 @@ class Solution {
 				}
 				if(cnt >= 2) {
 					AnswerN += 1;
-					break;
+					break loop;
 				}
 			}
 			
+			loop :
 			for (int i = x; i < N; i++) {
 				if(x < 1 || x > N-2) {
 					AnswerN += 0;
@@ -74,10 +74,11 @@ class Solution {
 				}
 				if(cnt >= 2) {
 					AnswerN += 1;
-					break;
+					break loop;
 				}
 			}
 			
+			loop :
 			for (int i = y; i < N; i++) {
 				if(y < 1 || y > N-2) {
 					AnswerN += 0;
@@ -93,10 +94,11 @@ class Solution {
 				}
 				if(cnt >= 2) {
 					AnswerN += 1;
-					break;
+					break loop;
 				}
 			}
 			
+			loop :
 			for (int i = y-2; i >= 0; i--) {
 				if(y < 1 || y > N-2) {
 					AnswerN += 0;
@@ -112,10 +114,9 @@ class Solution {
 				}
 				if(cnt >= 2) {
 					AnswerN += 1;
-					break;
+					break loop;
 				}
 			}
-			
 			System.out.println("#" + test_case + " " + AnswerN);
 
 		}
