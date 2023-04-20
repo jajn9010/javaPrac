@@ -63,7 +63,6 @@ public class ScoreController implements ScoreInterface {
 					Integer nKor = SC.nextInt();
 					SC.nextLine();
 					SCORES.get(i - 1).setKor(nKor);
-					SCORES.get(i - 1).updateScore();
 					break;
 				}
 				case 3: {
@@ -71,14 +70,12 @@ public class ScoreController implements ScoreInterface {
 					System.out.println("수정할 영어점수를 입력해주세요.");
 					SC.nextLine();
 					SCORES.get(i - 1).setEng(nEng);
-					SCORES.get(i - 1).updateScore();
 					break;
 				}
 				case 4: {
 					System.out.println("수정할 전산점수를 입력해주세요.");
 					Integer nCom = SC.nextInt();
 					SC.nextLine();
-					SCORES.get(i - 1).setCom(nCom);
 					SCORES.get(i - 1).updateScore();
 					break;
 				}
