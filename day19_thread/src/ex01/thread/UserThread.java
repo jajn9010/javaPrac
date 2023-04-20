@@ -1,7 +1,5 @@
 package ex01.thread;
 
-import java.util.Iterator;
-
 public class UserThread extends Thread {
 	String name;
 	
