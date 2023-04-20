@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class BmiController {
 	private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -14,17 +15,16 @@ public class BmiController {
 			System.out.println("고객님의 성명을 입렵해주세요.");
 			String name = br.readLine();
 			boolean check = false;
-			while (true) {
+			for (int j = 0; j <= 0; j++) {
 				System.out.println(name + "님의 성별은 무엇입니까? (1.남성, 2.여성)");
 				int gender = Integer.parseInt(br.readLine());
 				if (gender == 1) {
 					check = true;
-					break;
 				} else if (gender == 2) {
 					check = false;
-					break;
 				} else {
 					System.out.println("번호를 잘 못 입력하셨습니다. 다시 입력바랍니다.");
+					j--;
 				}
 			}
 			System.out.println("고객님의 키를 입력해주세요.");
@@ -36,8 +36,11 @@ public class BmiController {
 				Bmi bmi = new Bmi(a, name, tall, weight, check);
 				bmiArr.add(bmi);
 			} else {
+				System.out.println(check);
 				Bmi bmi = new Bmi(0, name, tall, weight, check);
 				bmiArr.add(bmi);
+				System.out.println(check + "0일때");
+				System.out.println(bmi);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

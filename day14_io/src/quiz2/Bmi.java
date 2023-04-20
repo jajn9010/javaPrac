@@ -66,7 +66,9 @@ public class Bmi {
 	}
 
 	public void setBmiNum() {
-		if(gender = true) {
+		if(gender == true) {
+			this.bmiNum = weight / (Math.pow((tall / 100), 2));
+		}else {
 			this.bmiNum = weight / (Math.pow((tall / 100), 2));
 		}
 	}
