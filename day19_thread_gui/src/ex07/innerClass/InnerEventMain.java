@@ -29,15 +29,13 @@ public class InnerEventMain { // OutterClass
 			}
 		}); // button에 event를 추가함.
 		
-		// 3.
+		// 3. window 창 닫기
 		frame.addWindowListener(new WindowAdapter() { // 익명(무명) class
 
 			@Override
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
-			
-			
 			
 		});
 
