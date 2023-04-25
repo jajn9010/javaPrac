@@ -14,7 +14,7 @@ public class ClientEx {
 		Socket s = null;
 
 		try {
-			s = new Socket("192.168.0.34", 9999); // "127.0.0.1" or "localhost"
+			s = new Socket("192.168.0.30", 9999); // "127.0.0.1" or "localhost"
 			br = new BufferedReader(new InputStreamReader(s.getInputStream()));
 			stin = new BufferedReader(new InputStreamReader(System.in));
 			bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
