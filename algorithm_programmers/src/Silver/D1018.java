@@ -27,12 +27,14 @@ public class D1018 {
 			}
 		}
 		
-		// 최대 결과값과 최소 결과값
+		// 최대 결과값과 최소값 구하기 위한 변수
 		int min = 0;
 		int ans = 64;
 		
+		// 가로 세로 배열 크기 확인 후 계산
 		for(int i = 0; i <= w-8; i++) {
 			for (int j = 0; j <= h-8; j++) {
+				//좌표값이 주어졌을 때 한 칸의 좌표에서 칠해야 할 판 계산
 				min = calc(i, j);
 				ans = Math.min(ans, min);
 			}
