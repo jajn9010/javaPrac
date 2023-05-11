@@ -26,7 +26,7 @@ public class D1019 {
 				break;
 			}
 			
-			while (end % 10 != 0 && start <= end) {
+			while (start % 10 != 0 && start <= end) {
 				count(start, digit);
 				start++;
 			}
