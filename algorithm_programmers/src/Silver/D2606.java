@@ -30,11 +30,11 @@ public class D2606 {
 			arr[b][a] = 1;
 		}
 		bfs(1, arr, map);
-		System.out.println(cnt);
+		System.out.println(cnt-1);
 	}
 	public static void bfs(int i, int[][] arr, boolean[] map) {
 		q = new LinkedList<>();
-		int n = arr.length-1;
+		int n = map.length-1;
 		
 		q.add(i);
 		map[i] = true;
@@ -46,7 +46,7 @@ public class D2606 {
 			for (int j = 1; j <= n; j++) {
 				if(arr[a][j] == 1 && !map[j]) {
 					q.add(j);
-					map[i] = true;
+					map[j] = true;
 				}
 			}
 		}
