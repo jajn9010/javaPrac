@@ -3,6 +3,10 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,7 +16,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class JDBCProjectEx1 extends JFrame implements ActionListener{
+import dbConn.util.ConnectionHelper;
+
+public class JDBCProjectEx2 extends JFrame implements ActionListener{
 	//component 객체 선언
 	JPanel panWest, panSouth;  //왼쪽텍스트필드, 아래쪽 버튼
 	JPanel p1,p2,p3,p4,p5; 
@@ -28,7 +34,7 @@ public class JDBCProjectEx1 extends JFrame implements ActionListener{
 	private static final int TOTAL = 4;
 	int cmd = NONE;
 	
-	public JDBCProjectEx1(){
+	public JDBCProjectEx2(){ //멤버변수의 초기화를 담당한다.
 		//component 등록
 		panWest = new JPanel(new GridLayout(5, 0));
 		p1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -79,8 +85,45 @@ public class JDBCProjectEx1 extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//메인 창 출력
 		setBounds(100, 100, 700, 300); //setSize(W,H);   pack(); 
-		setVisible(true);		
+		setVisible(true);
+		dbConnect();
 	} //constuctor end
+	
+	//// DB setting //////////////////////////////
+	Connection conn;
+	Statement stmt;
+	PreparedStatement pstmtInsert, pstmtDelete;
+	PreparedStatement pstmtTotal, pstmtTotalScroll;
+	PreparedStatement pstmtSearch, pstmtSearchScroll;
+	
+	private String sqlInsert = "INSERT INTO CUSTOMERS VALUES(?, ?, ?, ?)";
+	private String sqlDelete = "DELETE FROM CUSTOMERS WHERE CODE = ?";
+	private String sqlSelect = "SELECT * FROM CUSTOMERS";
+	private String sqlSearch = "SELECT * FROM CUSTOMERS where name = ?";
+	
+	public void dbConnect() {
+		try {
+			conn = ConnectionHelper.getConnection("oracle");
+			
+			pstmtInsert = conn.prepareStatement(sqlInsert);
+			pstmtDelete = conn.prepareStatement(sqlDelete);
+			pstmtTotal = conn.prepareStatement(sqlSelect);
+			pstmtSearch = conn.prepareStatement(sqlSearch);
+			
+			pstmtTotalScroll = conn.prepareStatement(sqlSelect,
+									ResultSet.TYPE_SCROLL_SENSITIVE,  //커서 이동을 자유롭게하고 업데이트 내용을 반영한다.
+									ResultSet.CONCUR_UPDATABLE); // resultset object의 변경이 가능  <=> concur_read_only 는 읽기만 가능
+			
+			pstmtSearchScroll = conn.prepareStatement(sqlSearch, 
+									ResultSet.TYPE_SCROLL_SENSITIVE,
+									ResultSet.CONCUR_UPDATABLE);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+			
+	//////////////////////////////////////////////
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {  //버튼 이벤트 처리하는 곳
@@ -178,7 +221,7 @@ public class JDBCProjectEx1 extends JFrame implements ActionListener{
 	}//setButton end
 
 	public static void main(String[] args) {
-		new JDBCProjectEx1();
+		new JDBCProjectEx2();
 	}
 }
 

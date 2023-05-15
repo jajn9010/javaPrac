@@ -46,7 +46,7 @@ public class MainEntry {
 //			sql = "DROP TABLE KOSADB";
 //			result = stmt.executeUpdate(sql);
 //			System.out.println("drop table : " + result);
-			
+//			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
