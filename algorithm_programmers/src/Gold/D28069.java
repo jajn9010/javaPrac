@@ -38,13 +38,13 @@ public class D28069 {
 				arr[num+1] = arr[num] + 1;
 				q.add(num + 1);
 			}
-			if(calc < 1000000&& arr[calc] == 0 ) {
+			if(calc < 1000000 && arr[calc] == 0 ) {
 				arr[calc] = arr[num] + 1;
 				q.add(calc);
 			}
 		}
 		
-		if(arr[n] == k) {
+		if(arr[n] <= k) {
 			return "minigimbob";
 		} else {
 			return "water";
