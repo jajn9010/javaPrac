@@ -10,7 +10,6 @@ public class D15657 {
 	static int[] arr;
 	static int[] list;
 	static int n, m;
-	static boolean[] visited;
 	static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) throws IOException {
@@ -22,7 +21,6 @@ public class D15657 {
 
 		list = new int[n];
 		arr = new int[m];
-		visited = new boolean[n + 1];
 
 		st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < n; i++) {
@@ -30,24 +28,20 @@ public class D15657 {
 		}
 		Arrays.sort(list);
 
-		dfs(0);
+		dfs(0, 0);
 		System.out.println(sb);
 	}
 
-	private static void dfs(int depth) {
+	private static void dfs(int now, int depth) {
 		if (depth == m) {
 			for (int item : arr)
 				sb.append(item).append(" ");
 			sb.append("\n");
 			return;
 		}
-		for (int i = 0; i < n; i++) {
-			if (!visited[i]) {
-				visited[i] = true;
-				arr[depth] = list[i];
-				dfs(depth + 1);
-				visited[i] = false;
-			}
+		for (int i = now; i < n; i++) {
+			arr[depth] = list[i];
+			dfs(i, depth + 1);
 		}
 	}
 }
