@@ -7,10 +7,21 @@ import java.io.InputStreamReader;
 public class D7696 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String input = null;
+		StringBuilder sb = new StringBuilder();
 		
-		while((input = br.readLine()) != "0" && !input.equals("0")) {
+		while(true) {
+			String str = br.readLine();
+			char[] arr = str.toCharArray();
+			boolean chk = true;
+			int num = 1;
+			int cnt = 0;
 			
+			if(str.equals("0")) break;
+			else {
+				while(true) {
+					
+				}
+			}
 		}
 	}
 }
