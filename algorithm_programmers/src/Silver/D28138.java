@@ -18,9 +18,9 @@ public class D28138 {
 		
 		ArrayList<Long> list = new ArrayList<>();
 
-		for (int i = 1; i <= sqrt; i++) {
+		for (long i = 1; i <= sqrt; i++) {
 			if(check % i == 0) {
-				list.add((long) i);
+				list.add(i);
 				if(check / i != i) {
 					list.add(check / i);
 				}
