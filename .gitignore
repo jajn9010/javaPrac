@@ -1,2 +1,5 @@
 /.metadata/
 /.gitignore/
+.gitignore
+/day35_jdbc_gui/src/dbConn/
+/day34_jdbc_mvc/src/dbConn/

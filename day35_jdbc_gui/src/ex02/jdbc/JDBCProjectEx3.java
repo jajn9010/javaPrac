@@ -187,7 +187,7 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener {
 	private void update() {
 		total();
 		String strNo = null;
-		
+
 		try {
 			strNo = txtNo.getText();
 			String strName = txtName.getText();
@@ -203,7 +203,6 @@ public class JDBCProjectEx3 extends JFrame implements ActionListener {
 			pstmtUpdate.setString(1, strName);
 			pstmtUpdate.setString(2, strMail);
 			pstmtUpdate.setString(3, strPhone);
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
