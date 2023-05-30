@@ -1,4 +1,4 @@
-package Silver;
+package Gold;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,7 +28,6 @@ public class D28139 {
 				}
 			}
 		}
-		
 		System.out.println(ans/n);
 	}
 }
