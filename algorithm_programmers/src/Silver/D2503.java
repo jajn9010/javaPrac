@@ -24,7 +24,7 @@ public class D2503 {
 			ball[i] = Integer.parseInt(st.nextToken());
 		}
 
-		for (int i = 123; i < 987; i++) {
+		for (int i = 123; i <= 987; i++) {
 			int strike_temp;
 			int ball_temp;
 			int checked = 0;
