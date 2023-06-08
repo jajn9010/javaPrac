@@ -11,7 +11,7 @@ public class D12851 {
 	static int N, K;
     static int MAX_SIZE = 100001;
     static int min;
-    static int count;
+    static int cnt;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -19,13 +19,13 @@ public class D12851 {
         N = Integer.parseInt(st.nextToken());
         K = Integer.parseInt(st.nextToken());
         min = Integer.MAX_VALUE;
-        count = 0;
+        cnt = 0;
         if(N >= K){
             System.out.println((N-K)+"\n"+1);
             return;
         }
         bfs();
-        System.out.println(min+"\n"+count);
+        System.out.println(min+"\n"+cnt);
     }
 
     public static void bfs() {
@@ -45,7 +45,7 @@ public class D12851 {
                     // arr[now]는 항상 최소 시간만 들어가 있다.
                     if (move[i] == K) {
                         min = arr[now];
-                        count++;
+                        cnt++;
                     }
                     //탐색을 한적이 없거나
                     //같은 시간대에 탐색했다면
