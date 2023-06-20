@@ -1,10 +1,9 @@
 package Platinum;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.StringTokenizer;
@@ -16,7 +15,7 @@ public class D2568 {
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
 		int N = Integer.parseInt(br.readLine());
 		
@@ -46,6 +45,7 @@ public class D2568 {
 		
 		ans = new int[N];
 		ans[idx] = list[0].y;
+		trace[0] = new Pair(0, list[0].x);
 		
 		for (int i = 1; i < N; i++) {
 			if(ans[idx] < list[i].y) {
@@ -53,12 +53,30 @@ public class D2568 {
 				trace[i] = new Pair(idx, list[i].x);
 			} else {
 				int lower_bound = binarySearch(0, idx, list[i].y);
-				ans[lower_bound -1 ] = list[i].y;
-				trace[i] = new Pair(lower_bound - 1, list[i].y);
+				ans[lower_bound] = list[i].y;
+				trace[i] = new Pair(lower_bound, list[i].x);
 			}
 		}
 		
-		System.out.println(N - (idx + 1));
+		sb.append(N - (idx + 1)).append("\n");
+
+		ArrayList<Integer> arr = new ArrayList<>();
+		
+		
+		for (int i = N - 1; i >= 0 ; i--) {
+			if(trace[i].x == idx) {
+				arr.add(trace[i].y);
+				idx--;
+			}
+		}
+		
+		for(int a : arr) visited[a] = false;
+		
+		for (int i = 0; i <= 500000; i++) {
+			if(visited[i]) sb.append(i).append("\n");
+		}
+		
+		System.out.println(sb);
 	}
 	
 	public static class Pair {
@@ -77,6 +95,6 @@ public class D2568 {
 			if(ans[mid] >= v) right = mid;
 			else left = mid + 1;
 		}
-		return right + 1;
+		return right;
 	}
 }
