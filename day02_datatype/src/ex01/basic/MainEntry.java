@@ -1,14 +1,18 @@
 package ex01.basic;
 
 public class MainEntry {
-	
+
 	public static void main(String[] args) {
-		
-		System.out.println("Hello World");
-		System.out.print("이재진\n"); //제어문자  \문자 \n \t \a \b
-		System.out.print(100);
-		System.out.println();
-		System.out.println(12.34);  // sysout Ctrl + Space bar
+		for (int i = 1; i < 16; i++) {
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 3);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 6);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 9);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 11);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 14);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 19);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 20);");
+			System.out.println("insert into PIMapping(productno, itemno) values (" + i + ", 23);");
+		}
 	}
 
 }
