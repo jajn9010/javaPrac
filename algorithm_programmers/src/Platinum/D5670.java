@@ -63,7 +63,7 @@ public class D5670 {
 		StringBuilder sb = new StringBuilder();
 		String str = br.readLine();
 		
-		while(!str.equals("")) {
+		while((str = br.readLine()) != null) {
 			int num = Integer.parseInt(str);
 			ArrayList<String> list = new ArrayList<>();
 			Trie trie = new Trie();
